@@ -1,20 +1,49 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 #nav-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
   align-items: center;
 }
 
-#test-1 {
-  text-align: center;
+#logo-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #eff6fa;
 }
 
-#insta-icon,
-#link-icon,
-#twitter-icon {
-  display: block;
-  max-width: 230px;
-  max-height: 95px;
-  width: auto;
+#main-logo {
+  max-width: 50%;
   height: auto;
+}
+
+#footer-div {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  position: absolute;
+  bottom: auto;
+  text-align: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 480px) {
+  #nav-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #footer-div {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 481px) {
 }
