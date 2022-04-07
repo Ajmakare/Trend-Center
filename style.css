@@ -1,3 +1,20 @@
-/* #nav-container {
-    
-} */
+#nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#test-1 {
+  text-align: center;
+}
+
+#insta-icon,
+#link-icon,
+#twitter-icon {
+  display: block;
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+}
