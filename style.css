@@ -6,6 +6,7 @@ html {
   height: 100%;
 }
 
+/* test */
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -27,6 +28,7 @@ html {
   flex-direction: row;
   justify-content: center;
   background-color: #eff6fa;
+  margin: 1%;
 }
 
 #main-logo {
@@ -52,10 +54,10 @@ html {
   text-align: center;
   align-items: center;
   width: 100%;
-  position: absolute;
   height: 50px;
   bottom: 0;
   left: 0;
+  margin-left: 1%;
 }
 
 @media only screen and (max-width: 480px) {
