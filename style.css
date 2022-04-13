@@ -1,9 +1,18 @@
+/* Set body and html margin and height */
 body,
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* flexbox for nav-container */
 #nav-container {
   display: flex;
   flex-direction: row;
@@ -12,6 +21,7 @@ html {
   align-items: center;
 }
 
+/* Center page logo div to center */
 #logo-div {
   display: flex;
   flex-direction: row;
@@ -20,11 +30,12 @@ html {
 }
 
 #main-logo {
+  margin: 0 auto;
   max-width: 50%;
   height: auto;
 }
 
-#footer-div {
+/* #footer-div {
   display: flex;
   flex-direction: row;
   gap: 40px;
@@ -32,16 +43,25 @@ html {
   bottom: auto;
   text-align: center;
   align-items: center;
+} */
+
+#footer-div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
+  left: 0;
 }
 
 @media only screen and (max-width: 480px) {
   #nav-container {
     display: flex;
     flex-direction: row;
-  }
-
-  #footer-div {
-    text-align: center;
   }
 }
 
