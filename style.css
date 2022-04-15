@@ -8,7 +8,7 @@ html {
 
 /* Wraps entire content in page */
 .wrapper {
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -26,7 +26,7 @@ html {
 /* Content div that displays logo in center page */
 #logo-div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   background-color: #dfe0e2;
   margin: 1%;
@@ -46,8 +46,8 @@ html {
   gap: 20px;
   text-align: center;
   align-items: center;
-  width: 100%;
-  height: 50px;
+  width: auto;
+  height: 75px;
   margin: 1%;
   background-color: #eff6fa;
 }
@@ -77,17 +77,12 @@ html {
 }
 
 /* iPad Air Media Query */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  #nav-container {
+@media only screen and (min-width: 481px) {
+  #logo-div {
+    flex-grow: 2;
   }
 
-  #main-logo {
-  }
-
-  body,
-  html {
-    max-width: 100%;
-    min-width: 100%;
+  #footer-div {
   }
 }
 
