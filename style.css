@@ -81,9 +81,6 @@ html {
   #logo-div {
     flex-grow: 2;
   }
-
-  #footer-div {
-  }
 }
 
 /* Computer Media Query */
