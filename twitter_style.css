@@ -54,3 +54,15 @@ html {
   margin: 1%;
   background-color: #eff6fa;
 }
+
+/* iPhone 12 viewport */
+@media only screen and (max-width: 480px) {
+}
+
+/* iPad Air viewport */
+@media only screen and (min-width: 481px) {
+}
+
+/* Computer viewport */
+@media only screen and (min-width: 769px) {
+}

@@ -45,7 +45,7 @@ html {
   background-color: #eff6fa;
 }
 
-/* iPhone Media Query */
+/* iPhone 12 viewport */
 @media only screen and (max-width: 480px) {
   #nav-container {
     display: flex;
@@ -69,14 +69,14 @@ html {
   }
 }
 
-/* iPad Air Media Query */
+/* iPad Air viewport */
 @media only screen and (min-width: 481px) {
   #logo-div {
     flex-grow: 2;
   }
 }
 
-/* Computer Media Query */
+/* Computer viewport */
 @media only screen and (min-width: 769px) {
   #main-logo {
     margin: 0 auto;
