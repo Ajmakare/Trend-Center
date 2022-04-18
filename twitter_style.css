@@ -1,4 +1,3 @@
-/* Set body and html margin and height */
 body,
 html {
   margin: 0;
@@ -13,6 +12,26 @@ html {
   flex-direction: column;
 }
 
+#home-link {
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2rem;
+  color: inherit;
+}
+
+#main-logo {
+  position: relative;
+  top: 10px;
+}
+
+.trend-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #1da1f2;
+}
+
 /* flexbox for nav-container */
 #nav-container {
   display: flex;
@@ -21,15 +40,6 @@ html {
   padding: 10px;
   align-items: center;
   background-color: #eff6fa;
-}
-
-/* Content div that displays logo in center page */
-#logo-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #dfe0e2;
-  margin: 1%;
 }
 
 /* places footer at bottom of screen */
@@ -47,40 +57,12 @@ html {
 
 /* iPhone 12 viewport */
 @media only screen and (max-width: 480px) {
-  #nav-container {
-    display: flex;
-    flex-direction: row;
-  }
-
-  #logo-div {
-    height: auto;
-    flex-grow: 1;
-  }
-
-  #main-logo {
-    object-fit: scale-down;
-    max-width: 100%;
-  }
-
-  #footer-div {
-    position: absolute;
-    bottom: 0;
-    width: auto;
-  }
 }
 
 /* iPad Air viewport */
 @media only screen and (min-width: 481px) {
-  #logo-div {
-    flex-grow: 2;
-  }
 }
 
 /* Computer viewport */
 @media only screen and (min-width: 769px) {
-  #main-logo {
-    margin: 0 auto;
-    max-width: 50%;
-    height: auto;
-  }
 }
