@@ -19,6 +19,11 @@ html {
   color: inherit;
 }
 
+#main-logo {
+  position: relative;
+  top: 10px;
+}
+
 .trend-header {
   display: flex;
   flex-direction: row;
