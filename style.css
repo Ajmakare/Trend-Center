@@ -32,13 +32,6 @@ html {
   margin: 1%;
 }
 
-/* logo attributes */
-/* #main-logo {
-  margin: 0 auto;
-  max-width: 50%;
-  height: auto;
-} */
-
 /* places footer at bottom of screen */
 #footer-div {
   display: flex;
