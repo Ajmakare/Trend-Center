@@ -7,7 +7,11 @@ async function getTwitterJSON() {
       Authorization: "",
     },
   });
-  return result;
+  result
+  .then((response) => {
+      console.log(response);
+      return response.json();
+  })
 }
 
 // window.onload = () => {
