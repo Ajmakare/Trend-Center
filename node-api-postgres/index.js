@@ -1,15 +1,11 @@
-//const express = require("express");
 import express from "express";
-//const bodyParser = require("body-parser")
 import bodyParser from "body-parser";
 const app = express();
-//const cors = require("cors")
 import cors from "cors";
 
 import getTwitterJSON from "./twitterAPI.js";
 const port = 3000;
 
-//const db = require("./queries")
 import db from "./queries.js";
 
 app.use(cors());
@@ -23,13 +19,16 @@ app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
 
-app.get("/users", db.getUsers);
-// app.get("/users/:id", db.getUser);
-
 // app.put("/users/:id", db.updateUser);
+
+//GET twitter data from twitter API
 app.get("/tweets", db.getTweets);
 
+//POST twitter data to our API
 app.post("/tweets", db.postTweets);
+
+//GET twitter data from our API
+app.get("/twitterdata", db.getOurTweets);
 
 // app.delete("/users/:id", db.deleteUser);
 

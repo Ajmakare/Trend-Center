@@ -29,7 +29,7 @@ postButton.addEventListener("click", () => {
   let data = getTwitterJSON();
   console.log(data);
 
-  fetch("http://localhost:3000/tweets, {
+  fetch("http://localhost:3000/twitterdata", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
