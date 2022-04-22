@@ -64,15 +64,13 @@ const updateUser = (request, response) => {
   );
 };
 
-const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id);
-  console.log(id);
-
-  pool.query("DELETE FROM user_info WHERE id= $1", [id], (error, results) => {
+//Delete twitter data to keep the trends up-to-date
+const deleteTwitterData = (request, response) => {
+  pool.query("DELETE FROM twitterdata", (error, results) => {
     if (error) {
       throw error;
     }
-    response.status(200).send(`User Deleted`);
+    response.status(200).send(`Twitter data Deleted`);
   });
 };
 
@@ -81,5 +79,5 @@ export default {
   postTweets,
   getOurTweets,
   updateUser,
-  deleteUser,
+  deleteTwitterData,
 };

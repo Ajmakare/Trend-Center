@@ -18,11 +18,22 @@ window.onload = (event) => {
       infoUI.innerHTML = "";
 
       //The Twitter JSON is a triple nested array... So O(n^3) it is!
-      for (let i = 0; i < 15; i++) {
-        for (let j = 0; j < 15; j++) {
-          for (let k = 0; k < 15; k++) {
-            infoUI.innerHTML +=
-              JSON.stringify(data.rows[i].trends[j].trends[k].url) + "<br>";
+      for (let i = 0; i < data.rows.length; i++) {
+        for (let j = 0; j < data.rows[i].trends.length; j++) {
+          for (let k = 0; k < data.rows[i].trends[j].trends.length; k++) {
+            if (
+              JSON.stringify(data.rows[i].trends[j].trends[k].tweet_volume) ==
+              "null"
+            ) {
+              infoUI.innerHTML +=
+                JSON.stringify(data.rows[i].trends[j].trends[k].name) + "<br>";
+            } else {
+              infoUI.innerHTML +=
+                JSON.stringify(data.rows[i].trends[j].trends[k].name) +
+                " with " +
+                JSON.stringify(data.rows[i].trends[j].trends[k].tweet_volume) +
+                " tweets!<br>";
+            }
           }
         }
       }
