@@ -29,7 +29,7 @@ app.get("/users", db.getUsers);
 // app.put("/users/:id", db.updateUser);
 app.get("/tweets", db.getTweets);
 
-// app.post("/twitter", db.createTrends);
+app.post("/tweets", db.postTweets);
 
 // app.delete("/users/:id", db.deleteUser);
 

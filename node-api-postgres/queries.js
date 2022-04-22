@@ -2,6 +2,7 @@
 import Pool from "pg";
 // const getTwitter = require("./twitterAPI.js")
 import getTwitterJSON from "./twitterAPI.js";
+import * as util from "util";
 
 const pgPool = Pool.Pool;
 
@@ -45,18 +46,18 @@ const getTweets = async (request, response) => {
   return response.status(200).json(result);
 };
 
-const postTweets = (request, response) => {
-  const { id, age, name } = request.body;
-  console.log(id, age, name);
+const postTweets = async (request, response) => {
+  let tweetData = request.body;
+  console.log(tweetData);
 
   pool.query(
-    "INSERT INTO user_info (id, age, name) VALUES ($1, $2, $3)",
-    [id, age, name],
+    "INSERT INTO twitterdata (trends) VALUES ($1)",
+    [tweetData],
     (error, results) => {
       if (error) {
         throw error;
       }
-      response.status(201).send(`User added`);
+      response.status(201).send(`Tweets added`);
     }
   );
 };
