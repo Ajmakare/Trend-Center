@@ -1,6 +1,4 @@
-// const Pool = require("pg").Pool //Environment
 import Pool from "pg";
-// const getTwitter = require("./twitterAPI.js")
 import getTwitterJSON from "./twitterAPI.js";
 
 const pgPool = Pool.Pool;
@@ -13,30 +11,7 @@ const pool = new pgPool({
   port: 5432,
 });
 
-const getUsers = (request, response) => {
-  console.log("WORKS");
-  pool.query("SELECT * FROM twitterdata", (error, results) => {
-    if (error) {
-      throw error;
-    }
-    response.status(200).json(results.rows);
-  });
-};
-
-const getUser = (request, response) => {
-  const id = parseInt(request.params.id);
-  pool.query(
-    "SELECT * FROM user_info WHERE id= $1 ", //$1 is our selector
-    [id],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
-    }
-  );
-};
-
+//GET Twitter JSON from Twitter API
 const getTweets = async (request, response) => {
   console.log("hits");
   const result = await getTwitterJSON();
@@ -45,20 +20,31 @@ const getTweets = async (request, response) => {
   return response.status(200).json(result);
 };
 
-const postTweets = (request, response) => {
-  const { id, age, name } = request.body;
-  console.log(id, age, name);
+//POST Twitter JSON to our API
+const postTweets = async (request, response) => {
+  let tweetData = request.body;
+  console.log(tweetData);
 
   pool.query(
-    "INSERT INTO user_info (id, age, name) VALUES ($1, $2, $3)",
-    [id, age, name],
+    "INSERT INTO twitterdata (trends) VALUES ($1)",
+    [tweetData],
     (error, results) => {
       if (error) {
         throw error;
       }
-      response.status(201).send(`User added`);
+      response.status(201).send(`Tweets added`);
     }
   );
+};
+
+//GET Twitter data from our API
+const getOurTweets = async (request, response) => {
+  pool.query("SELECT * FROM twitterdata", (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results);
+  });
 };
 
 const updateUser = (request, response) => {
@@ -78,23 +64,20 @@ const updateUser = (request, response) => {
   );
 };
 
-const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id);
-  console.log(id);
-
-  pool.query("DELETE FROM user_info WHERE id= $1", [id], (error, results) => {
+//Delete twitter data to keep the trends up-to-date
+const deleteTwitterData = (request, response) => {
+  pool.query("DELETE FROM twitterdata", (error, results) => {
     if (error) {
       throw error;
     }
-    response.status(200).send(`User Deleted`);
+    response.status(200).send(`Twitter data Deleted`);
   });
 };
 
 export default {
-  getUsers,
-  getUser,
   getTweets,
   postTweets,
+  getOurTweets,
   updateUser,
-  deleteUser,
+  deleteTwitterData,
 };

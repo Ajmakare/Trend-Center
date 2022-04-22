@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import fetch from "node-fetch";
 
+//Get twitter data from twitter API
 export default async function getTwitterJSON() {
   const result = await fetch(
     "https://api.twitter.com/1.1/trends/place.json?id=1",

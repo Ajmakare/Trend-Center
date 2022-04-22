@@ -1,15 +1,12 @@
-//const express = require("express");
 import express from "express";
-//const bodyParser = require("body-parser")
 import bodyParser from "body-parser";
 const app = express();
-//const cors = require("cors")
 import cors from "cors";
+import fetch from "node-fetch";
 
 import getTwitterJSON from "./twitterAPI.js";
 const port = 3000;
 
-//const db = require("./queries")
 import db from "./queries.js";
 
 app.use(cors());
@@ -23,15 +20,21 @@ app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
 
-app.get("/users", db.getUsers);
-// app.get("/users/:id", db.getUser);
-
 // app.put("/users/:id", db.updateUser);
+
+//GET twitter data from twitter API
 app.get("/tweets", db.getTweets);
 
-// app.post("/twitter", db.createTrends);
+//POST twitter data to our API
+app.post("/tweets", db.postTweets);
 
-// app.delete("/users/:id", db.deleteUser);
+//GET twitter data from our API
+app.get("/twitterdata", db.getOurTweets);
+
+//DELETE data in twitterdata table to keep trends up-to-date
+//Delete all because there is no need to delete individual entries
+//So, our delete operation will clear the table
+app.delete("/twitterdata", db.deleteTwitterData);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
