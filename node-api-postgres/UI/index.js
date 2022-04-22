@@ -1,7 +1,7 @@
 // Get Users
 const getButton = document.getElementById("get-data-button");
 getButton.addEventListener("click", () => {
-  const result = fetch("http://localhost:3000/twitterdata/", {
+  const result = fetch("http://localhost:3000/tweets", {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -29,7 +29,7 @@ postButton.addEventListener("click", () => {
   let data = getTwitterJSON();
   console.log(data);
 
-  fetch("http://localhost:3000/twitterdata", {
+  fetch("http://localhost:3000/tweets, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
