@@ -52,18 +52,27 @@ window.onload = (event) => {
       const infoUI = document.getElementById("data");
       infoUI.innerHTML = "";
       //Populate p tag with proper data from JSON
+      //Most recent JSON posted to DB, for most up-to-date trending hashtags
       for (let i = 0; i < data.rows[0].trends[0][0].trends.length; i++) {
         if (
-          JSON.stringify(data.rows[0].trends[0][0].trends[i].tweet_volume) ==
-          "null"
+          JSON.stringify(
+            data.rows[data.rows.length - 1].trends[0][0].trends[i].tweet_volume
+          ) == "null"
         ) {
           infoUI.innerHTML +=
-            JSON.stringify(data.rows[0].trends[0][0].trends[i].name) + "<br>";
+            JSON.stringify(
+              data.rows[data.rows.length - 1].trends[0][0].trends[i].name
+            ) + "<br>";
         } else {
           infoUI.innerHTML +=
-            JSON.stringify(data.rows[0].trends[0][0].trends[i].name) +
+            JSON.stringify(
+              data.rows[data.rows.length - 1].trends[0][0].trends[i].name
+            ) +
             " with " +
-            JSON.stringify(data.rows[0].trends[0][0].trends[i].tweet_volume) +
+            JSON.stringify(
+              data.rows[data.rows.length - 1].trends[0][0].trends[i]
+                .tweet_volume
+            ) +
             " tweets!<br>";
         }
       }
