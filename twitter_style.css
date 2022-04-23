@@ -75,10 +75,6 @@ html {
   background-color: #7ec1ea;
 }
 
-#data {
-  text-align: center;
-}
-
 /* iPhone 12 viewport */
 @media only screen and (max-width: 480px) {
 }
