@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/twitter_style.css" />
-    <title>Document</title>
+    <title>Twitter Trends</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
@@ -16,8 +16,8 @@
           <img
             src="/assets/tcIcon.PNG"
             id="main-logo"
-            width="100"
-            height="100"
+            width="125"
+            height="125"
             alt="TrendCenter Icon"
           />
           <a href="/index.html" id="home-link">Trend Center</a>
@@ -29,8 +29,8 @@
           <a id="page-twitter" href="#">
             <img
               src="/assets/twitter-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="twitter-icon"
               alt=""
             />
@@ -39,8 +39,8 @@
           <a id="page-insta" href="#">
             <img
               src="/assets/instagram-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="insta-icon"
               alt=""
             />
@@ -49,37 +49,22 @@
           <a id="page-3" href="#"
             ><img
               src="/assets/link-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="link-icon"
               alt=""
           /></a>
         </div>
       </header>
 
-      <h5
-        style="
-          text-align: center;
-          font-size: 300%;
-          margin-bottom: 1%;
-          margin-top: 0;
-          font-weight: bold;
-          text-decoration: underline;
-        "
-      >
-        Trending Hashtags!
-      </h5>
-      <!-- <h6
-        style="
-          text-align: center;
-          font-size: 150%;
-          margin-bottom: 0%;
-          margin-top: 0%;
-        "
-      >
-        Updates every 30 minutes!
-      </h6> -->
-      <p id="data"></p>
+      <br />
+
+      <div class="data-wrapper">
+        <h5 id="hashtag-title">Trending Hashtags!</h5>
+        <div id="data-format">
+          <p id="data"></p>
+        </div>
+      </div>
 
       <!-- Footer -->
       <div id="footer-div">

@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body,
 html {
   margin: 0;
@@ -14,8 +18,7 @@ html {
 
 #home-link {
   text-decoration: none;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 2rem;
+  font-size: 3rem;
   color: inherit;
 }
 
@@ -55,7 +58,24 @@ html {
   background-color: #eff6fa;
 }
 
-#data{
+#hashtag-title {
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 1%;
+  margin-top: 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#data-wrapper {
+  background-color: #dfe0e2;
+}
+
+#data-format {
+  background-color: #7ec1ea;
+}
+
+#data {
   text-align: center;
 }
 
@@ -69,4 +89,9 @@ html {
 
 /* Computer viewport */
 @media only screen and (min-width: 769px) {
+  #data-format {
+    column-count: 2;
+    column-width: 100px;
+    column-rule-style: solid;
+  }
 }
