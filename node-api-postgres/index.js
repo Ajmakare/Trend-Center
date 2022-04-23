@@ -20,8 +20,6 @@ app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
 
-// app.put("/users/:id", db.updateUser);
-
 //GET twitter data from twitter API
 app.get("/tweets", db.getTweets);
 
