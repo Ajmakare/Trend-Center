@@ -1,5 +1,50 @@
 //On window load, populate the middle of page with twitter data.
 window.onload = (event) => {
+  //CLEAR tuples to get most up-to-date trends
+  var requestOptions = {
+    method: "DELETE",
+    redirect: "follow",
+  };
+
+  fetch("http://localhost:3000/twitterdata", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+  //GET from twitter API
+  const result1 = fetch("http://localhost:3000/tweets", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  result1
+    .then((res) => {
+      console.log("Request complete! response:", res);
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      //POST data to our API
+      var raw = JSON.stringify([data]);
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch("http://localhost:3000/tweets", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  //GET from our API
   const result = fetch("http://localhost:3000/twitterdata", {
     method: "GET",
     headers: {
@@ -16,25 +61,20 @@ window.onload = (event) => {
       console.log(data);
       const infoUI = document.getElementById("data");
       infoUI.innerHTML = "";
-
-      //The Twitter JSON is a triple nested array... So O(n^3) it is!
-      for (let i = 0; i < data.rows.length; i++) {
-        for (let j = 0; j < data.rows[i].trends.length; j++) {
-          for (let k = 0; k < data.rows[i].trends[j].trends.length; k++) {
-            if (
-              JSON.stringify(data.rows[i].trends[j].trends[k].tweet_volume) ==
-              "null"
-            ) {
-              infoUI.innerHTML +=
-                JSON.stringify(data.rows[i].trends[j].trends[k].name) + "<br>";
-            } else {
-              infoUI.innerHTML +=
-                JSON.stringify(data.rows[i].trends[j].trends[k].name) +
-                " with " +
-                JSON.stringify(data.rows[i].trends[j].trends[k].tweet_volume) +
-                " tweets!<br>";
-            }
-          }
+      //Populate p tag with proper data from JSON
+      for (let i = 0; i < data.rows[0].trends[0][0].trends.length; i++) {
+        if (
+          JSON.stringify(data.rows[0].trends[0][0].trends[i].tweet_volume) ==
+          "null"
+        ) {
+          infoUI.innerHTML +=
+            JSON.stringify(data.rows[0].trends[0][0].trends[i].name) + "<br>";
+        } else {
+          infoUI.innerHTML +=
+            JSON.stringify(data.rows[0].trends[0][0].trends[i].name) +
+            " with " +
+            JSON.stringify(data.rows[0].trends[0][0].trends[i].tweet_volume) +
+            " tweets!<br>";
         }
       }
     })
