@@ -36,6 +36,11 @@ app.get("/twitterdata", db.getOurTweets);
 //So, our delete operation will clear the table
 app.delete("/twitterdata", db.deleteTwitterData);
 
+//UPDATE trends to be NULL
+//This is unnecassary to our implementation, but is required so we
+//are just updating the tuples to be null to full-fill requirement
+app.put("/twitterdata", db.updateTwitterDataNULL);
+
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });

@@ -32,7 +32,7 @@ const postTweets = async (request, response) => {
       if (error) {
         throw error;
       }
-      response.status(201).send(`Tweets added`);
+      response.status(201).send(`Tweets posted to API`);
     }
   );
 };
@@ -47,19 +47,19 @@ const getOurTweets = async (request, response) => {
   });
 };
 
-const updateUser = (request, response) => {
+//UPDATE tuple
+const updateTwitterDataNULL = (request, response) => {
   console.log("hits");
-  const id = parseInt(request.params.id);
-  const { name, age } = request.body;
+  const nullValue = null;
 
   pool.query(
-    "UPDATE user_info SET name = $1, age = $2 WHERE id = $3",
-    [name, age, id],
+    "UPDATE twitterdata SET trends = $1",
+    [nullValue],
     (error, results) => {
       if (error) {
         throw error;
       }
-      response.status(200).send(`User modified with ID: ${id}`);
+      response.status(200).send(`Table modified to be null`);
     }
   );
 };
@@ -78,6 +78,6 @@ export default {
   getTweets,
   postTweets,
   getOurTweets,
-  updateUser,
+  updateTwitterDataNULL,
   deleteTwitterData,
 };

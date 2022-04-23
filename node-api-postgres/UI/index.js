@@ -1,7 +1,7 @@
-// Get Users
+// Get tweet data
 const getButton = document.getElementById("get-data-button");
 getButton.addEventListener("click", () => {
-  const result = fetch("http://localhost:3000/tweets", {
+  const result = fetch("http://localhost:3000/twitterdata", {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -15,6 +15,10 @@ getButton.addEventListener("click", () => {
     })
     .then((data) => {
       console.log(data);
+      const infoUI = document.getElementById("data");
+      infoUI.innerHTML = "";
+      //Populate p tag with proper data from JSON
+      infoUI.innerHTML += JSON.stringify(data.rows[0]) + "<br>";
     })
     .catch((error) => {
       console.log(error);
@@ -22,55 +26,71 @@ getButton.addEventListener("click", () => {
 });
 
 // Post
-
 const postButton = document.getElementById("post-button");
 
 postButton.addEventListener("click", () => {
-  let data = getTwitterJSON();
-  console.log(data);
-
-  fetch("http://localhost:3000/twitterdata", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).then((res) => {
-    console.log("Request complete! response:", res);
+  //GET from twitter API
+  const result1 = fetch("http://localhost:3000/tweets", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
   });
+
+  result1
+    .then((res) => {
+      console.log("Request complete! response:", res);
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      //POST data to our API
+      var raw = JSON.stringify([data]);
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch("http://localhost:3000/tweets", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
 
 // PUT
 const putBotton = document.getElementById("put-button");
 
 putBotton.addEventListener("click", () => {
-  const data = {
-    id: "6",
-    name: "Robbie",
-    age: "30",
+  var requestOptions = {
+    method: "PUT",
+    redirect: "follow",
   };
 
-  fetch(`http://localhost:3000/users/${data.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).then((res) => {
-    console.log("Request complete! response:", res);
-  });
+  fetch("http://localhost:3000/twitterdata", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 });
 
 // DELETE
 const deleteBotton = document.getElementById("delete-button");
 
 deleteBotton.addEventListener("click", () => {
-  const data = {
-    id: "6",
-    name: "Robbie",
-    age: "30",
+  var requestOptions = {
+    method: "DELETE",
+    redirect: "follow",
   };
 
-  fetch(`http://localhost:3000/users/${data.id}`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  }).then((res) => {
-    console.log("Request complete! response:", res);
-  });
+  fetch("http://localhost:3000/twitterdata", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 });

@@ -1,15 +1,5 @@
 //On window load, populate the middle of page with twitter data.
 window.onload = (event) => {
-  //CLEAR tuples to get most up-to-date trends
-  var requestOptions = {
-    method: "DELETE",
-    redirect: "follow",
-  };
-
-  fetch("http://localhost:3000/twitterdata", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
   //GET from twitter API
   const result1 = fetch("http://localhost:3000/tweets", {
     method: "GET",

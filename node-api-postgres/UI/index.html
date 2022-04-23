@@ -7,12 +7,34 @@
     <title>Document</title>
   </head>
   <body>
+    <header>
+    <div class="trend-header" style ="  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #1da1f2;">
+      <img
+        src="/assets/tcIcon.PNG"
+        id="main-logo"
+        width="100"
+        height="100"
+        alt="TrendCenter Icon"
+        style = "  position: relative;
+        top: 10px;"
+      />
+      <a href="/index.html" id="home-link" style = "  text-decoration: none;
+      font-family: Times New Roman, Times, serif;
+      font-size: 2rem;
+      color: inherit;">Trend Center - ADMIN PAGE</a>
+    </header>
     <h1>CRUD OPERATIONS</h1>
 
     <button id="get-data-button">GET DATA</button>
     <button id="post-button">POST DATA</button>
     <button id="put-button">PUT DATA</button>
     <button id="delete-button">DELETE DATA</button>
+
+    <p id = "data"></p>
     <script type="module" src="./index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
