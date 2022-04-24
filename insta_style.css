@@ -1,0 +1,97 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Wraps entire content in page */
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-link {
+  text-decoration: none;
+  font-size: 3rem;
+  color: inherit;
+}
+
+#main-logo {
+  position: relative;
+  top: 10px;
+}
+
+.trend-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #cf3481;
+}
+
+/* flexbox for nav-container */
+#nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  background-color: #eff6fa;
+}
+
+/* places footer at bottom of screen */
+#footer-div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  width: auto;
+  height: 75px;
+  margin: 1%;
+  background-color: #eff6fa;
+}
+
+#hashtag-title {
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 1%;
+  margin-top: 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#data-wrapper {
+  background-color: #dfe0e2;
+}
+
+#data-format {
+  background-color: #9a38ac;
+}
+
+#data {
+  text-align: center;
+}
+
+/* iPhone 12 viewport */
+@media only screen and (max-width: 480px) {
+}
+
+/* iPad Air viewport */
+@media only screen and (min-width: 481px) {
+}
+
+/* Computer viewport */
+@media only screen and (min-width: 769px) {
+  #data-format {
+    column-count: 2;
+    column-width: 100px;
+    column-rule-style: solid;
+  }
+}

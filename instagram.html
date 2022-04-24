@@ -4,34 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <title>Trend Center</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/insta_style.css" />
+    <title>Instagram Trends</title>
   </head>
   <body>
-    <!-- Wraps entire page -->
-
     <div class="wrapper">
-      <!-- Header Nav -->
       <header>
+        <!-- Trend Center page title -->
+        <div class="trend-header">
+          <img
+            src="/assets/tcIcon.PNG"
+            id="main-logo"
+            width="125"
+            height="125"
+            alt="TrendCenter Icon"
+          />
+          <a href="/index.html" id="home-link">Trend Center</a>
+        </div>
+
         <!-- Wraps the nav links -->
         <div id="nav-container">
           <!-- Link 1 -- Twitter -->
           <a id="page-twitter" href="/twitter.html">
             <img
               src="/assets/twitter-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="twitter-icon"
               alt=""
             />
           </a>
           <!-- Link 2 -- Instagram -->
-          <a id="page-insta" href="/instagram.html">
+          <a id="page-insta" href="#">
             <img
               src="/assets/instagram-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="insta-icon"
               alt=""
             />
@@ -40,21 +48,34 @@
           <a id="page-3" href="#"
             ><img
               src="/assets/link-icon.png"
-              width="100"
-              height="100"
+              width="75"
+              height="75"
               id="link-icon"
               alt=""
           /></a>
         </div>
       </header>
 
-      <!-- Page Section FILL WITH TWITTER DATA -->
-      <div class="twitter-post"></div>
+      <br />
 
-      <!-- Website Icon -->
-      <div id="logo-div">
-        <img src="/assets/tcLogo.PNG" id="main-logo" alt="" />
+      <div class="data-wrapper">
+        <h5 id="hashtag-title">Trending Hashtags!</h5>
+        <div id="data-format">
+          <ul id="trend-list">
+            <li>"#</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
       </div>
+
       <!-- Footer -->
       <div id="footer-div">
         <p>© Trend Center 2022</p>
