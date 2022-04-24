@@ -49,34 +49,30 @@ window.onload = (event) => {
     })
     .then((data) => {
       console.log(data);
-      const infoUI = document.getElementById("data");
-      infoUI.innerHTML = "";
       //Populate p tag with proper data from JSON
       //Most recent JSON posted to DB, for most up-to-date trending hashtags
+      let temp = 0;
+      var ul = document.getElementById("data");
       for (let j = 0; j < data.rows.length; j++) {
-        infoUI.innerHTML += "-----------------------------------------<br>";
+        temp++;
+        var string = "-----------------------------------------";
+        $("ul").append($("<li>").html(string));
         for (let i = 0; i < data.rows[0].trends[0][0].trends.length; i++) {
           if (
-            JSON.stringify(
-              data.rows[data.rows.length - 1].trends[0][0].trends[i]
-                .tweet_volume
-            ) == "null"
+            JSON.stringify(data.rows[j].trends[0][0].trends[i].tweet_volume) ==
+            "null"
           ) {
-            infoUI.innerHTML +=
-              JSON.stringify(
-                data.rows[data.rows.length - 1].trends[0][0].trends[i].name
-              ) + "<br>";
+            var string = JSON.stringify(
+              data.rows[j].trends[0][0].trends[i].name
+            );
+            $("ul").append($("<li>").html(string));
           } else {
-            infoUI.innerHTML +=
-              JSON.stringify(
-                data.rows[data.rows.length - 1].trends[0][0].trends[i].name
-              ) +
+            var string =
+              JSON.stringify(data.rows[j].trends[0][0].trends[i].name) +
               " with " +
-              JSON.stringify(
-                data.rows[data.rows.length - 1].trends[0][0].trends[i]
-                  .tweet_volume
-              ) +
-              " tweets!<br>";
+              JSON.stringify(data.rows[j].trends[0][0].trends[i].tweet_volume) +
+              " tweets!";
+            $("ul").append($("<li>").html(string));
           }
         }
       }
