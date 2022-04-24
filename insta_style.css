@@ -75,8 +75,8 @@ html {
   background-color: #9a38ac;
 }
 
-#data {
-  text-align: center;
+#trend-list {
+  list-style: none;
 }
 
 /* iPhone 12 viewport */
