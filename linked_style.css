@@ -32,7 +32,7 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #1da1f2;
+  background-color: #0077b5;
 }
 
 /* flexbox for nav-container */
@@ -76,6 +76,7 @@ html {
 }
 
 #data {
+  list-style: none;
   margin-right: 10%;
   padding-top: 2%;
   padding-bottom: 2%;

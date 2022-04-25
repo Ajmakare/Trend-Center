@@ -32,7 +32,7 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #cf3481;
+  background-color: #9a38ac;
 }
 
 /* flexbox for nav-container */
@@ -72,19 +72,22 @@ html {
 }
 
 #data-format {
-  background-color: #9a38ac;
+  background-color: #cf3481;
 }
 
-#trend-list {
+#data {
   list-style: none;
-}
-
-/* iPhone 12 viewport */
-@media only screen and (max-width: 480px) {
+  margin-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
 }
 
 /* iPad Air viewport */
 @media only screen and (min-width: 481px) {
+  #logo-div {
+    flex-grow: 2;
+  }
 }
 
 /* Computer viewport */
