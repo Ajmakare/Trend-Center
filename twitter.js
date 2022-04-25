@@ -56,7 +56,7 @@ window.onload = (event) => {
       for (let j = 0; j < data.rows.length; j++) {
         temp++;
         var string = "-----------------------------------------";
-        $("ul").append($("<li>").html(string));
+        $("ul").prepend($("<li>").html(string));
         for (let i = 0; i < data.rows[0].trends[0][0].trends.length; i++) {
           if (
             JSON.stringify(data.rows[j].trends[0][0].trends[i].tweet_volume) ==
@@ -65,14 +65,14 @@ window.onload = (event) => {
             var string = JSON.stringify(
               data.rows[j].trends[0][0].trends[i].name
             );
-            $("ul").append($("<li>").html(string));
+            $("ul").prepend($("<li>").html(string));
           } else {
             var string =
               JSON.stringify(data.rows[j].trends[0][0].trends[i].name) +
               " with " +
               JSON.stringify(data.rows[j].trends[0][0].trends[i].tweet_volume) +
               " tweets!";
-            $("ul").append($("<li>").html(string));
+            $("ul").prepend($("<li>").html(string));
           }
         }
       }
