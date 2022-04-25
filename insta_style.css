@@ -88,6 +88,9 @@ html {
   #logo-div {
     flex-grow: 2;
   }
+  #footer-div{
+    margin-top: 53%;
+  }
 }
 
 /* Computer viewport */
